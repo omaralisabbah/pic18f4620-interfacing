@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=pic18f4620interfacing.X
+PROJECTNAME=pic18f4620-interfacing
 
 # Active Configuration
 DEFAULTCONF=default

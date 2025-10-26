@@ -5,9 +5,27 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="ecu_layer" displayName="ecu_layer" projectFiles="true">
+        <logicalFolder name="button" displayName="button" projectFiles="true">
+          <itemPath>ecu_layer/button/ecu_button.h</itemPath>
+          <itemPath>ecu_layer/button/ecu_button_cfg.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="dc_motor" displayName="dc_motor" projectFiles="true">
+          <itemPath>ecu_layer/dc_motor/ecu_dc_motor.h</itemPath>
+          <itemPath>ecu_layer/dc_motor/ecu_dc_motor_cfg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="led" displayName="led" projectFiles="true">
           <itemPath>ecu_layer/led/ecu_led.h</itemPath>
           <itemPath>ecu_layer/led/ecu_led_cfg.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="relay" displayName="relay" projectFiles="true">
+          <itemPath>ecu_layer/relay/ecu_relay.h</itemPath>
+          <itemPath>ecu_layer/relay/ecu_relay_cfg.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="seven_segment"
+                       displayName="seven_segment"
+                       projectFiles="true">
+          <itemPath>ecu_layer/seven_segment/ecu_seven_seg.h</itemPath>
+          <itemPath>ecu_layer/seven_segment/ecu_seven_seg_cfg.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="mcal_layer" displayName="mcal_layer" projectFiles="true">
@@ -35,8 +53,22 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="ecu_layer" displayName="ecu_layer" projectFiles="true">
+        <logicalFolder name="button" displayName="button" projectFiles="true">
+          <itemPath>ecu_layer/button/ecu_button.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="dc_motor" displayName="dc_motor" projectFiles="true">
+          <itemPath>ecu_layer/dc_motor/ecu_dc_motor.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="led" displayName="led" projectFiles="true">
           <itemPath>ecu_layer/led/ecu_led.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="relay" displayName="relay" projectFiles="true">
+          <itemPath>ecu_layer/relay/ecu_relay.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="seven_segment"
+                       displayName="seven_segment"
+                       projectFiles="true">
+          <itemPath>ecu_layer/seven_segment/ecu_seven_seg.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="mcal_layer" displayName="mcal_layer" projectFiles="true">
