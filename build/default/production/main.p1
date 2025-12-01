@@ -3,16 +3,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./ecu_layer/led/../../mcal_layer/gpio/hal_gpio.h: 62: typedef struct {
 [s S295 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S295 . PORT PIN DIRECTION LOGIC ]
+"34 ./ecu_layer/lcd/ecu_lcd.h
+[; ;./ecu_layer/lcd/ecu_lcd.h: 34: typedef struct {
+[s S301 `S295 1 `S295 1 `S295 -> 4 `i ]
+[n S301 . LCD_RS LCD_EN LCD_DATA ]
 "4 main.c
-[; ;main.c: 4: SEGMENT_T seg_one = {
-[c E3198 0 1 .. ]
-[n E3198 . SEGMENT_COMMON_ANODE SEGMENT_COMMON_CATHODE  ]
-"19 ./ecu_layer/seven_segment/ecu_seven_seg.h
-[; ;./ecu_layer/seven_segment/ecu_seven_seg.h: 19: typedef struct {
-[s S299 `S295 -> 4 `i `E3198 1 ]
-[n S299 . SEGMENT_PINS SEGMENT_TYPE ]
-"4 main.c
-[; ;main.c: 4: SEGMENT_T seg_one = {
+[; ;main.c: 4: LCD_4BIT_T lcd_one = {
 [c E3117 0 1 2 3 4 .. ]
 [n E3117 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 [c E3107 0 1 2 3 4 5 6 7 .. ]
@@ -21,20 +17,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E3103 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 [c E3099 0 1 .. ]
 [n E3099 . GPIO_LOW GPIO_HIGH  ]
+"40 ./ecu_layer/lcd/ecu_lcd.h
+[; ;./ecu_layer/lcd/ecu_lcd.h: 40: typedef struct {
+[s S302 `S295 1 `S295 1 `S295 -> 8 `i ]
+[n S302 . LCD_RS LCD_EN LCD_DATA ]
 [p mainexit ]
-"11 ./main.h
-[; ;./main.h: 11: void APPLICATION_INITIALIZE(void);
+"13 ./main.h
+[; ;./main.h: 13: void APPLICATION_INITIALIZE(void);
 [v _APPLICATION_INITIALIZE `(v ~T0 @X0 0 ef ]
-"26 ./ecu_layer/seven_segment/ecu_seven_seg.h
-[; ;./ecu_layer/seven_segment/ecu_seven_seg.h: 26: STD_RETURN_TYPE SEVEN_SEGMENT_WRITE_NUMBER(const SEGMENT_T *_seg, uint8 number);
-[v _SEVEN_SEGMENT_WRITE_NUMBER `(uc ~T0 @X0 0 ef2`*CS299`uc ]
+"60 ./ecu_layer/lcd/ecu_lcd.h
+[; ;./ecu_layer/lcd/ecu_lcd.h: 60: STD_RETURN_TYPE LCD_8BIT_SEND_CUSTOME_CHAR(const LCD_8BIT_T *lcd, uint8 row, uint8 column, const uint8 _char[], uint8 mem_pos);
+[v _LCD_8BIT_SEND_CUSTOME_CHAR `(uc ~T0 @X0 0 ef5`*CS302`uc`uc`*Cuc`uc ]
 [v F693 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v3.10\pic\include/builtins.h
 [v __delay `JF693 ~T0 @X0 0 e ]
 [p i __delay ]
-"25 ./ecu_layer/seven_segment/ecu_seven_seg.h
-[; ;./ecu_layer/seven_segment/ecu_seven_seg.h: 25: STD_RETURN_TYPE SEVEN_SEGMENT_INITIALIZE(const SEGMENT_T *_seg);
-[v _SEVEN_SEGMENT_INITIALIZE `(uc ~T0 @X0 0 ef1`*CS299 ]
+"46 ./ecu_layer/lcd/ecu_lcd.h
+[; ;./ecu_layer/lcd/ecu_lcd.h: 46: STD_RETURN_TYPE LCD_4BIT_INITIALIZE(const LCD_4BIT_T *lcd);
+[v _LCD_4BIT_INITIALIZE `(uc ~T0 @X0 0 ef1`*CS301 ]
+"54
+[; ;./ecu_layer/lcd/ecu_lcd.h: 54: STD_RETURN_TYPE LCD_8BIT_INITIALIZE(const LCD_8BIT_T *lcd);
+[v _LCD_8BIT_INITIALIZE `(uc ~T0 @X0 0 ef1`*CS302 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4620.h: 52: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -447,9 +450,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.25/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4620.h: 6713: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "4 main.c
-[; ;main.c: 4: SEGMENT_T seg_one = {
-[v _seg_one `S299 ~T0 @X0 1 e ]
-[i _seg_one
+[; ;main.c: 4: LCD_4BIT_T lcd_one = {
+[v _lcd_one `S301 ~T0 @X0 1 e ]
+[i _lcd_one
 :U ..
 :U ..
 :U ..
@@ -459,12 +462,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> . `E3103 0 `uc
 -> . `E3099 0 `uc
 ..
+..
+:U ..
 :U ..
 -> . `E3117 2 `uc
 -> . `E3107 1 `uc
 -> . `E3103 0 `uc
 -> . `E3099 0 `uc
 ..
+..
+:U ..
 :U ..
 -> . `E3117 2 `uc
 -> . `E3107 2 `uc
@@ -477,83 +484,271 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> . `E3103 0 `uc
 -> . `E3099 0 `uc
 ..
+:U ..
+-> . `E3117 2 `uc
+-> . `E3107 4 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
 ..
-. `E3198 0
+:U ..
+-> . `E3117 2 `uc
+-> . `E3107 5 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+..
 ..
 ..
 ]
-"24
-[; ;main.c: 24: uint8 counter = 0;
-[v _counter `uc ~T0 @X0 1 e ]
-[i _counter
+"33
+[; ;main.c: 33: LCD_8BIT_T lcd_two = {
+[v _lcd_two `S302 ~T0 @X0 1 e ]
+[i _lcd_two
+:U ..
+:U ..
+:U ..
+:U ..
+-> . `E3117 2 `uc
+-> . `E3107 6 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E3117 2 `uc
+-> . `E3107 7 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+..
+:U ..
+:U ..
+-> . `E3117 3 `uc
+-> . `E3107 0 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+:U ..
+-> . `E3117 3 `uc
+-> . `E3107 1 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+:U ..
+-> . `E3117 3 `uc
+-> . `E3107 2 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+:U ..
+-> . `E3117 3 `uc
+-> . `E3107 3 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+:U ..
+-> . `E3117 3 `uc
+-> . `E3107 4 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+:U ..
+-> . `E3117 3 `uc
+-> . `E3107 5 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+:U ..
+-> . `E3117 3 `uc
+-> . `E3107 6 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+:U ..
+-> . `E3117 3 `uc
+-> . `E3107 7 `uc
+-> . `E3103 0 `uc
+-> . `E3099 0 `uc
+..
+..
+..
+..
+]
+"79
+[; ;main.c: 79: const uint8 battery_body[] = {0x0E, 0x0A, 0x11, 0x11, 0x11, 0x11, 0x1F, 0x00};
+[v _battery_body `Cuc ~T0 @X0 -> 8 `i e ]
+[i _battery_body
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
 -> -> 0 `i `uc
+..
+]
+"80
+[; ;main.c: 80: const uint8 increment_1[] = {0x0E, 0x0A, 0x11, 0x11, 0x11, 0x1F, 0x1F, 0x00};
+[v _increment_1 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _increment_1
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"81
+[; ;main.c: 81: const uint8 increment_2[] = {0x0E, 0x0A, 0x11, 0x11, 0x1F, 0x1F, 0x1F, 0x00};
+[v _increment_2 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _increment_2
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"82
+[; ;main.c: 82: const uint8 increment_3[] = {0x0E, 0x0A, 0x11, 0x1F, 0x1F, 0x1F, 0x1F, 0x00};
+[v _increment_3 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _increment_3
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"83
+[; ;main.c: 83: const uint8 increment_4[] = {0x0E, 0x0A, 0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x00};
+[v _increment_4 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _increment_4
+:U ..
+-> -> 14 `i `uc
+-> -> 10 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"84
+[; ;main.c: 84: const uint8 increment_5[] = {0x0E, 0x0E, 0x1F, 0x1F, 0x1F, 0x1F, 0x1F, 0x00};
+[v _increment_5 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _increment_5
+:U ..
+-> -> 14 `i `uc
+-> -> 14 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"26
-[; ;main.c: 26: void main(void) {
+"87
+[; ;main.c: 87: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"27
-[; ;main.c: 27:     STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x00;
+"88
+[; ;main.c: 88:     STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x00;
 [v _RET `uc ~T0 @X0 1 a ]
 [e = _RET -> -> 0 `i `uc ]
-"28
-[; ;main.c: 28:     APPLICATION_INITIALIZE();
+"89
+[; ;main.c: 89:     APPLICATION_INITIALIZE();
 [e ( _APPLICATION_INITIALIZE ..  ]
-"29
-[; ;main.c: 29:     while(1) {
-[e :U 302 ]
-{
-"30
-[; ;main.c: 30:         for(counter = 0; counter <= 9; counter++) {
-{
-[e = _counter -> -> 0 `i `uc ]
-[e $ <= -> _counter `i -> 9 `i 304  ]
-[e $U 305  ]
-[e :U 304 ]
-{
-"31
-[; ;main.c: 31:             RET = SEVEN_SEGMENT_WRITE_NUMBER(&seg_one, counter);
-[e = _RET ( _SEVEN_SEGMENT_WRITE_NUMBER (2 , -> &U _seg_one `*CS299 _counter ]
-"32
-[; ;main.c: 32:             _delay((unsigned long)((375)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 375 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"33
-[; ;main.c: 33:         }
-}
-[e ++ _counter -> -> 1 `i `uc ]
-[e $ <= -> _counter `i -> 9 `i 304  ]
+"90
+[; ;main.c: 90:     while(1) {
 [e :U 305 ]
+{
+"91
+[; ;main.c: 91:         RET = LCD_8BIT_SEND_CUSTOME_CHAR(&lcd_two, 1, 20, battery_body, 0);
+[e = _RET ( _LCD_8BIT_SEND_CUSTOME_CHAR (4 , , , , -> &U _lcd_two `*CS302 -> -> 1 `i `uc -> -> 20 `i `uc &U _battery_body -> -> 0 `i `uc ]
+"92
+[; ;main.c: 92:         _delay((unsigned long)((200)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"93
+[; ;main.c: 93:         RET = LCD_8BIT_SEND_CUSTOME_CHAR(&lcd_two, 1, 20, increment_1, 0);
+[e = _RET ( _LCD_8BIT_SEND_CUSTOME_CHAR (4 , , , , -> &U _lcd_two `*CS302 -> -> 1 `i `uc -> -> 20 `i `uc &U _increment_1 -> -> 0 `i `uc ]
+"94
+[; ;main.c: 94:         _delay((unsigned long)((200)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"95
+[; ;main.c: 95:         RET = LCD_8BIT_SEND_CUSTOME_CHAR(&lcd_two, 1, 20, increment_2, 0);
+[e = _RET ( _LCD_8BIT_SEND_CUSTOME_CHAR (4 , , , , -> &U _lcd_two `*CS302 -> -> 1 `i `uc -> -> 20 `i `uc &U _increment_2 -> -> 0 `i `uc ]
+"96
+[; ;main.c: 96:         _delay((unsigned long)((200)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"97
+[; ;main.c: 97:         RET = LCD_8BIT_SEND_CUSTOME_CHAR(&lcd_two, 1, 20, increment_3, 0);
+[e = _RET ( _LCD_8BIT_SEND_CUSTOME_CHAR (4 , , , , -> &U _lcd_two `*CS302 -> -> 1 `i `uc -> -> 20 `i `uc &U _increment_3 -> -> 0 `i `uc ]
+"98
+[; ;main.c: 98:         _delay((unsigned long)((200)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"99
+[; ;main.c: 99:         RET = LCD_8BIT_SEND_CUSTOME_CHAR(&lcd_two, 1, 20, increment_4, 0);
+[e = _RET ( _LCD_8BIT_SEND_CUSTOME_CHAR (4 , , , , -> &U _lcd_two `*CS302 -> -> 1 `i `uc -> -> 20 `i `uc &U _increment_4 -> -> 0 `i `uc ]
+"100
+[; ;main.c: 100:         _delay((unsigned long)((200)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"101
+[; ;main.c: 101:         RET = LCD_8BIT_SEND_CUSTOME_CHAR(&lcd_two, 1, 20, increment_5, 0);
+[e = _RET ( _LCD_8BIT_SEND_CUSTOME_CHAR (4 , , , , -> &U _lcd_two `*CS302 -> -> 1 `i `uc -> -> 20 `i `uc &U _increment_5 -> -> 0 `i `uc ]
+"102
+[; ;main.c: 102:         _delay((unsigned long)((200)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"103
+[; ;main.c: 103:     }
 }
-"34
-[; ;main.c: 34:     }
+[e :U 304 ]
+[e $U 305  ]
+[e :U 306 ]
+"105
+[; ;main.c: 105:     return;
+[e $UE 303  ]
+"106
+[; ;main.c: 106: }
+[e :UE 303 ]
 }
-[e :U 301 ]
-[e $U 302  ]
-[e :U 303 ]
-"36
-[; ;main.c: 36:     return;
-[e $UE 300  ]
-"37
-[; ;main.c: 37: }
-[e :UE 300 ]
-}
-"39
-[; ;main.c: 39: void APPLICATION_INITIALIZE(void) {
+"108
+[; ;main.c: 108: void APPLICATION_INITIALIZE(void) {
 [v _APPLICATION_INITIALIZE `(v ~T0 @X0 1 ef ]
 {
 [e :U _APPLICATION_INITIALIZE ]
 [f ]
-"40
-[; ;main.c: 40:     STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x00;
+"109
+[; ;main.c: 109:     STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x00;
 [v _RET `uc ~T0 @X0 1 a ]
 [e = _RET -> -> 0 `i `uc ]
-"41
-[; ;main.c: 41:     SEVEN_SEGMENT_INITIALIZE(&seg_one);
-[e ( _SEVEN_SEGMENT_INITIALIZE (1 -> &U _seg_one `*CS299 ]
-"42
-[; ;main.c: 42: }
+"110
+[; ;main.c: 110:     RET = LCD_4BIT_INITIALIZE(&(lcd_one));
+[e = _RET ( _LCD_4BIT_INITIALIZE (1 -> &U _lcd_one `*CS301 ]
+"111
+[; ;main.c: 111:     RET = LCD_8BIT_INITIALIZE(&(lcd_two));
+[e = _RET ( _LCD_8BIT_INITIALIZE (1 -> &U _lcd_two `*CS302 ]
+"112
+[; ;main.c: 112: }
 [e :UE 307 ]
 }

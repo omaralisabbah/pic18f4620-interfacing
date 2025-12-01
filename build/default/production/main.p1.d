@@ -17,4 +17,10 @@ ecu_layer/dc_motor/ecu_dc_motor_cfg.h  \
 ecu_layer/dc_motor/../../mcal_layer/gpio/hal_gpio.h  \
 ecu_layer/seven_segment/ecu_seven_seg.h  \
 ecu_layer/seven_segment/../../mcal_layer/gpio/hal_gpio.h  \
-ecu_layer/seven_segment/ecu_seven_seg_cfg.h 
+ecu_layer/seven_segment/ecu_seven_seg_cfg.h  \
+ecu_layer/keypad/ecu_keypad.h  \
+ecu_layer/keypad/ecu_keypad_cfg.h  \
+ecu_layer/keypad/../../mcal_layer/gpio/hal_gpio.h  \
+ecu_layer/lcd/ecu_lcd.h  \
+ecu_layer/lcd/ecu_lcd_cfg.h  \
+ecu_layer/lcd/../../mcal_layer/gpio/hal_gpio.h 

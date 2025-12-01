@@ -22,6 +22,16 @@ GPIO_HIGH 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
+"49 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/keypad/ecu_keypad.c
+[e E3099 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"55 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/lcd/ecu_lcd.c
+[e E3099 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
 "17 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/led/ecu_led.c
 [e E3103 . `uc
 GPIO_DIRECTION_OUTPUT 0
@@ -71,10 +81,6 @@ PORTD_INDEX 3
 PORTE_INDEX 4
 ]
 "4 C:\Users\omara\github\pic18f4620-interfacing\main.c
-[e E3198 . `uc
-SEGMENT_COMMON_ANODE 0
-SEGMENT_COMMON_CATHODE 1
-]
 [e E3117 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
@@ -144,6 +150,10 @@ GPIO_HIGH 1
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "7 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+"9 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
@@ -160,13 +170,37 @@ GPIO_HIGH 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v3.10\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"10 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/seven_segment/ecu_seven_seg.c
-[v _SEVEN_SEGMENT_INITIALIZE SEVEN_SEGMENT_INITIALIZE `(uc  1 e 1 0 ]
-"30
-[v _SEVEN_SEGMENT_WRITE_NUMBER SEVEN_SEGMENT_WRITE_NUMBER `(uc  1 e 1 0 ]
-"26 C:\Users\omara\github\pic18f4620-interfacing\main.c
+"16 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/lcd/ecu_lcd.c
+[v _LCD_4BIT_INITIALIZE LCD_4BIT_INITIALIZE `(uc  1 e 1 0 ]
+"49
+[v _LCD_4BIT_SEND_COMMAND LCD_4BIT_SEND_COMMAND `(uc  1 e 1 0 ]
+"70
+[v _LCD_4BIT_SEND_DATA LCD_4BIT_SEND_DATA `(uc  1 e 1 0 ]
+"93
+[v _LCD_4BIT_SEND_DATA_POSITION LCD_4BIT_SEND_DATA_POSITION `(uc  1 e 1 0 ]
+"176
+[v _LCD_8BIT_INITIALIZE LCD_8BIT_INITIALIZE `(uc  1 e 1 0 ]
+"209
+[v _LCD_8BIT_SEND_COMMAND LCD_8BIT_SEND_COMMAND `(uc  1 e 1 0 ]
+"231
+[v _LCD_8BIT_SEND_DATA LCD_8BIT_SEND_DATA `(uc  1 e 1 0 ]
+"255
+[v _LCD_8BIT_SEND_DATA_POSITION LCD_8BIT_SEND_DATA_POSITION `(uc  1 e 1 0 ]
+"317
+[v _LCD_8BIT_SEND_CUSTOME_CHAR LCD_8BIT_SEND_CUSTOME_CHAR `(uc  1 e 1 0 ]
+"388
+[v _LCD_SEND_4BITS LCD_SEND_4BITS `(uc  1 s 1 LCD_SEND_4BITS ]
+"407
+[v _LCD_4BITS_SEND_EN_SIGNAL LCD_4BITS_SEND_EN_SIGNAL `(uc  1 s 1 LCD_4BITS_SEND_EN_SIGNAL ]
+"427
+[v _LCD_4BITS_SET_CURSOR LCD_4BITS_SET_CURSOR `(uc  1 s 1 LCD_4BITS_SET_CURSOR ]
+"450
+[v _LCD_8BITS_SEND_EN_SIGNAL LCD_8BITS_SEND_EN_SIGNAL `(uc  1 s 1 LCD_8BITS_SEND_EN_SIGNAL ]
+"470
+[v _LCD_8BITS_SET_CURSOR LCD_8BITS_SET_CURSOR `(uc  1 s 1 LCD_8BITS_SET_CURSOR ]
+"87 C:\Users\omara\github\pic18f4620-interfacing\main.c
 [v _main main `(v  1 e 1 0 ]
-"39
+"108
 [v _APPLICATION_INITIALIZE APPLICATION_INITIALIZE `(v  1 e 1 0 ]
 "18 C:\Users\omara\github\pic18f4620-interfacing\mcal_layer/gpio/hal_gpio.c
 [v _GPIO_PIN_DIRECTION_INITIALIZE GPIO_PIN_DIRECTION_INITIALIZE `(uc  1 e 1 0 ]
@@ -208,62 +242,189 @@ GPIO_HIGH 1
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "2266
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
+"4 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/keypad/ecu_keypad.c
+[v _btn_values btn_values `C[4][4]uc  1 s 16 btn_values ]
 [s S24 . 1 `uc 1 PORT 1 0 :3:0 
 `uc 1 PIN 1 0 :3:3 
 `uc 1 DIRECTION 1 0 :1:6 
 `uc 1 LOGIC 1 0 :1:7 
 ]
 "4 C:\Users\omara\github\pic18f4620-interfacing\main.c
-[s S272 . 5 `[4]S24 1 SEGMENT_PINS 4 0 `E3159 1 SEGMENT_TYPE 1 4 ]
-[v _seg_one seg_one `S272  1 e 5 0 ]
-"24
-[v _counter counter `uc  1 e 1 0 ]
+[s S152 . 6 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[4]S24 1 LCD_DATA 4 2 ]
+[v _lcd_one lcd_one `S152  1 e 6 0 ]
+"33
+[s S191 . 10 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[8]S24 1 LCD_DATA 8 2 ]
+[v _lcd_two lcd_two `S191  1 e 10 0 ]
+"79
+[v _battery_body battery_body `C[8]uc  1 e 8 0 ]
+"80
+[v _increment_1 increment_1 `C[8]uc  1 e 8 0 ]
+"81
+[v _increment_2 increment_2 `C[8]uc  1 e 8 0 ]
+"82
+[v _increment_3 increment_3 `C[8]uc  1 e 8 0 ]
+"83
+[v _increment_4 increment_4 `C[8]uc  1 e 8 0 ]
+"84
+[v _increment_5 increment_5 `C[8]uc  1 e 8 0 ]
 "4 C:\Users\omara\github\pic18f4620-interfacing\mcal_layer/gpio/hal_gpio.c
 [v _TRIS_REGISTERS TRIS_REGISTERS `[5]*.39VEuc  1 e 10 0 ]
 "6
 [v _LAT_REGISTERS LAT_REGISTERS `[5]*.39VEuc  1 e 10 0 ]
 "8
 [v _PORT_REGISTERS PORT_REGISTERS `[5]*.39VEuc  1 e 10 0 ]
-"26 C:\Users\omara\github\pic18f4620-interfacing\main.c
+"87 C:\Users\omara\github\pic18f4620-interfacing\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"37
+"106
 } 0
-"30 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/seven_segment/ecu_seven_seg.c
-[v _SEVEN_SEGMENT_WRITE_NUMBER SEVEN_SEGMENT_WRITE_NUMBER `(uc  1 e 1 0 ]
+"317 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/lcd/ecu_lcd.c
+[v _LCD_8BIT_SEND_CUSTOME_CHAR LCD_8BIT_SEND_CUSTOME_CHAR `(uc  1 e 1 0 ]
 {
-"31
-[v SEVEN_SEGMENT_WRITE_NUMBER@RET RET `uc  1 a 1 10 ]
+"319
+[v LCD_8BIT_SEND_CUSTOME_CHAR@local_pin_counter local_pin_counter `uc  1 a 1 32 ]
+"318
+[v LCD_8BIT_SEND_CUSTOME_CHAR@RET RET `uc  1 a 1 31 ]
 [s S24 . 1 `uc 1 PORT 1 0 :3:0 
 `uc 1 PIN 1 0 :3:3 
 `uc 1 DIRECTION 1 0 :1:6 
 `uc 1 LOGIC 1 0 :1:7 
 ]
-"30
-[s S272 . 5 `[4]S24 1 SEGMENT_PINS 4 0 `E3159 1 SEGMENT_TYPE 1 4 ]
-[v SEVEN_SEGMENT_WRITE_NUMBER@_seg _seg `*.30CS272  1 p 1 8 ]
-[v SEVEN_SEGMENT_WRITE_NUMBER@number number `uc  1 p 1 9 ]
-"42
+"317
+[s S191 . 10 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[8]S24 1 LCD_DATA 8 2 ]
+[v LCD_8BIT_SEND_CUSTOME_CHAR@lcd lcd `*.30CS191  1 p 1 25 ]
+[v LCD_8BIT_SEND_CUSTOME_CHAR@row row `uc  1 p 1 26 ]
+[v LCD_8BIT_SEND_CUSTOME_CHAR@column column `uc  1 p 1 27 ]
+[v LCD_8BIT_SEND_CUSTOME_CHAR@_char _char `*.31Cuc  1 p 1 28 ]
+[v LCD_8BIT_SEND_CUSTOME_CHAR@mem_pos mem_pos `uc  1 p 1 29 ]
+"331
 } 0
-"39 C:\Users\omara\github\pic18f4620-interfacing\main.c
+"255
+[v _LCD_8BIT_SEND_DATA_POSITION LCD_8BIT_SEND_DATA_POSITION `(uc  1 e 1 0 ]
+{
+"256
+[v LCD_8BIT_SEND_DATA_POSITION@RET RET `uc  1 a 1 24 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"255
+[s S191 . 10 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[8]S24 1 LCD_DATA 8 2 ]
+[v LCD_8BIT_SEND_DATA_POSITION@lcd lcd `*.30CS191  1 p 1 20 ]
+[v LCD_8BIT_SEND_DATA_POSITION@row row `uc  1 p 1 21 ]
+[v LCD_8BIT_SEND_DATA_POSITION@column column `uc  1 p 1 22 ]
+[v LCD_8BIT_SEND_DATA_POSITION@data data `uc  1 p 1 23 ]
+"265
+} 0
+"231
+[v _LCD_8BIT_SEND_DATA LCD_8BIT_SEND_DATA `(uc  1 e 1 0 ]
+{
+"233
+[v LCD_8BIT_SEND_DATA@local_pin_counter local_pin_counter `uc  1 a 1 15 ]
+"232
+[v LCD_8BIT_SEND_DATA@RET RET `uc  1 a 1 14 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"231
+[s S191 . 10 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[8]S24 1 LCD_DATA 8 2 ]
+[v LCD_8BIT_SEND_DATA@lcd lcd `*.30CS191  1 p 1 10 ]
+[v LCD_8BIT_SEND_DATA@data data `uc  1 p 1 11 ]
+"245
+} 0
+"470
+[v _LCD_8BITS_SET_CURSOR LCD_8BITS_SET_CURSOR `(uc  1 s 1 LCD_8BITS_SET_CURSOR ]
+{
+"471
+[v LCD_8BITS_SET_CURSOR@RET RET `uc  1 a 1 19 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"470
+[s S191 . 10 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[8]S24 1 LCD_DATA 8 2 ]
+[v LCD_8BITS_SET_CURSOR@lcd lcd `*.30CS191  1 p 1 16 ]
+[v LCD_8BITS_SET_CURSOR@row row `uc  1 p 1 17 ]
+[v LCD_8BITS_SET_CURSOR@column column `uc  1 p 1 18 ]
+"486
+} 0
+"108 C:\Users\omara\github\pic18f4620-interfacing\main.c
 [v _APPLICATION_INITIALIZE APPLICATION_INITIALIZE `(v  1 e 1 0 ]
 {
-"42
+"109
+[v APPLICATION_INITIALIZE@RET RET `uc  1 a 1 20 ]
+"112
 } 0
-"10 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/seven_segment/ecu_seven_seg.c
-[v _SEVEN_SEGMENT_INITIALIZE SEVEN_SEGMENT_INITIALIZE `(uc  1 e 1 0 ]
+"176 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/lcd/ecu_lcd.c
+[v _LCD_8BIT_INITIALIZE LCD_8BIT_INITIALIZE `(uc  1 e 1 0 ]
 {
-"11
-[v SEVEN_SEGMENT_INITIALIZE@RET RET `uc  1 a 1 12 ]
+"177
+[v LCD_8BIT_INITIALIZE@RET RET `uc  1 a 1 19 ]
+"178
+[v LCD_8BIT_INITIALIZE@local_pin_counter local_pin_counter `uc  1 a 1 18 ]
 [s S24 . 1 `uc 1 PORT 1 0 :3:0 
 `uc 1 PIN 1 0 :3:3 
 `uc 1 DIRECTION 1 0 :1:6 
 `uc 1 LOGIC 1 0 :1:7 
 ]
-"10
-[s S272 . 5 `[4]S24 1 SEGMENT_PINS 4 0 `E3159 1 SEGMENT_TYPE 1 4 ]
-[v SEVEN_SEGMENT_INITIALIZE@_seg _seg `*.30CS272  1 p 1 11 ]
-"22
+"176
+[s S191 . 10 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[8]S24 1 LCD_DATA 8 2 ]
+[v LCD_8BIT_INITIALIZE@lcd lcd `*.30CS191  1 p 1 16 ]
+"201
+} 0
+"209
+[v _LCD_8BIT_SEND_COMMAND LCD_8BIT_SEND_COMMAND `(uc  1 e 1 0 ]
+{
+"211
+[v LCD_8BIT_SEND_COMMAND@local_pin_counter local_pin_counter `uc  1 a 1 15 ]
+"210
+[v LCD_8BIT_SEND_COMMAND@RET RET `uc  1 a 1 14 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"209
+[s S191 . 10 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[8]S24 1 LCD_DATA 8 2 ]
+[v LCD_8BIT_SEND_COMMAND@lcd lcd `*.30CS191  1 p 1 10 ]
+[v LCD_8BIT_SEND_COMMAND@command command `uc  1 p 1 11 ]
+"223
+} 0
+"450
+[v _LCD_8BITS_SEND_EN_SIGNAL LCD_8BITS_SEND_EN_SIGNAL `(uc  1 s 1 LCD_8BITS_SEND_EN_SIGNAL ]
+{
+"451
+[v LCD_8BITS_SEND_EN_SIGNAL@RET RET `uc  1 a 1 9 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"450
+[s S191 . 10 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[8]S24 1 LCD_DATA 8 2 ]
+[v LCD_8BITS_SEND_EN_SIGNAL@lcd lcd `*.30CS191  1 p 1 8 ]
+"461
+} 0
+"16
+[v _LCD_4BIT_INITIALIZE LCD_4BIT_INITIALIZE `(uc  1 e 1 0 ]
+{
+"17
+[v LCD_4BIT_INITIALIZE@RET RET `uc  1 a 1 17 ]
+"18
+[v LCD_4BIT_INITIALIZE@local_pin_counter local_pin_counter `uc  1 a 1 16 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"16
+[s S152 . 6 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[4]S24 1 LCD_DATA 4 2 ]
+[v LCD_4BIT_INITIALIZE@lcd lcd `*.30CS152  1 p 1 14 ]
+"41
 } 0
 "137 C:\Users\omara\github\pic18f4620-interfacing\mcal_layer/gpio/hal_gpio.c
 [v _PIN_INITIALIZE PIN_INITIALIZE `(uc  1 e 1 0 ]
@@ -279,21 +440,6 @@ GPIO_HIGH 1
 [v PIN_INITIALIZE@_PIN_CONFIG _PIN_CONFIG `*.30CS24  1 p 1 8 ]
 "147
 } 0
-"68
-[v _GPIO_PIN_WRITE_LOGIC GPIO_PIN_WRITE_LOGIC `(uc  1 e 1 0 ]
-{
-"69
-[v GPIO_PIN_WRITE_LOGIC@RET RET `uc  1 a 1 7 ]
-[s S24 . 1 `uc 1 PORT 1 0 :3:0 
-`uc 1 PIN 1 0 :3:3 
-`uc 1 DIRECTION 1 0 :1:6 
-`uc 1 LOGIC 1 0 :1:7 
-]
-"68
-[v GPIO_PIN_WRITE_LOGIC@_PIN_CONFIG _PIN_CONFIG `*.30CS24  1 p 1 0 ]
-[v GPIO_PIN_WRITE_LOGIC@LOGIC LOGIC `E3099  1 p 1 1 ]
-"85
-} 0
 "18
 [v _GPIO_PIN_DIRECTION_INITIALIZE GPIO_PIN_DIRECTION_INITIALIZE `(uc  1 e 1 0 ]
 {
@@ -307,4 +453,66 @@ GPIO_HIGH 1
 "18
 [v GPIO_PIN_DIRECTION_INITIALIZE@_PIN_CONFIG _PIN_CONFIG `*.30CS24  1 p 1 0 ]
 "35
+} 0
+"49 C:\Users\omara\github\pic18f4620-interfacing\ecu_layer/lcd/ecu_lcd.c
+[v _LCD_4BIT_SEND_COMMAND LCD_4BIT_SEND_COMMAND `(uc  1 e 1 0 ]
+{
+"50
+[v LCD_4BIT_SEND_COMMAND@RET RET `uc  1 a 1 13 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"49
+[s S152 . 6 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[4]S24 1 LCD_DATA 4 2 ]
+[v LCD_4BIT_SEND_COMMAND@lcd lcd `*.30CS152  1 p 1 11 ]
+[v LCD_4BIT_SEND_COMMAND@command command `uc  1 p 1 12 ]
+"62
+} 0
+"388
+[v _LCD_SEND_4BITS LCD_SEND_4BITS `(uc  1 s 1 LCD_SEND_4BITS ]
+{
+"389
+[v LCD_SEND_4BITS@RET RET `uc  1 a 1 10 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"388
+[s S152 . 6 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[4]S24 1 LCD_DATA 4 2 ]
+[v LCD_SEND_4BITS@lcd lcd `*.30CS152  1 p 1 8 ]
+[v LCD_SEND_4BITS@_data _data `uc  1 p 1 9 ]
+"400
+} 0
+"407
+[v _LCD_4BITS_SEND_EN_SIGNAL LCD_4BITS_SEND_EN_SIGNAL `(uc  1 s 1 LCD_4BITS_SEND_EN_SIGNAL ]
+{
+"408
+[v LCD_4BITS_SEND_EN_SIGNAL@RET RET `uc  1 a 1 9 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"407
+[s S152 . 6 `S24 1 LCD_RS 1 0 `S24 1 LCD_EN 1 1 `[4]S24 1 LCD_DATA 4 2 ]
+[v LCD_4BITS_SEND_EN_SIGNAL@lcd lcd `*.30CS152  1 p 1 8 ]
+"418
+} 0
+"68 C:\Users\omara\github\pic18f4620-interfacing\mcal_layer/gpio/hal_gpio.c
+[v _GPIO_PIN_WRITE_LOGIC GPIO_PIN_WRITE_LOGIC `(uc  1 e 1 0 ]
+{
+"69
+[v GPIO_PIN_WRITE_LOGIC@RET RET `uc  1 a 1 7 ]
+[s S24 . 1 `uc 1 PORT 1 0 :3:0 
+`uc 1 PIN 1 0 :3:3 
+`uc 1 DIRECTION 1 0 :1:6 
+`uc 1 LOGIC 1 0 :1:7 
+]
+"68
+[v GPIO_PIN_WRITE_LOGIC@_PIN_CONFIG _PIN_CONFIG `*.30CS24  1 p 1 0 ]
+[v GPIO_PIN_WRITE_LOGIC@LOGIC LOGIC `E3099  1 p 1 1 ]
+"85
 } 0

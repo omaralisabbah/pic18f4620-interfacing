@@ -1,4 +1,4 @@
-# 1 "mcal_layer/gpio/hal_gpio.c"
+# 1 "ecu_layer/keypad/ecu_keypad.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 295 "<built-in>" 3
@@ -6,20 +6,28 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcal_layer/gpio/hal_gpio.c" 2
-# 1 "mcal_layer/gpio/hal_gpio.h" 1
+# 1 "ecu_layer/keypad/ecu_keypad.c" 2
+
+# 1 "ecu_layer/keypad/ecu_keypad.h" 1
+
+
+
+
+# 1 "ecu_layer/keypad/ecu_keypad_cfg.h" 1
+# 6 "ecu_layer/keypad/ecu_keypad.h" 2
+# 1 "ecu_layer/keypad/../../mcal_layer/gpio/hal_gpio.h" 1
 
 
 
 
 
-# 1 "mcal_layer/gpio/../mcal_std_types.h" 1
+# 1 "ecu_layer/keypad/../../mcal_layer/gpio/../mcal_std_types.h" 1
 
 
 
 
 
-# 1 "mcal_layer/gpio/../std_libraries.h" 1
+# 1 "ecu_layer/keypad/../../mcal_layer/gpio/../std_libraries.h" 1
 
 
 
@@ -196,7 +204,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 8 "mcal_layer/gpio/../std_libraries.h" 2
+# 8 "ecu_layer/keypad/../../mcal_layer/gpio/../std_libraries.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -274,7 +282,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 9 "mcal_layer/gpio/../std_libraries.h" 2
+# 9 "ecu_layer/keypad/../../mcal_layer/gpio/../std_libraries.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/string.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -332,9 +340,9 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 10 "mcal_layer/gpio/../std_libraries.h" 2
-# 7 "mcal_layer/gpio/../mcal_std_types.h" 2
-# 1 "mcal_layer/gpio/../compiler.h" 1
+# 10 "ecu_layer/keypad/../../mcal_layer/gpio/../std_libraries.h" 2
+# 7 "ecu_layer/keypad/../../mcal_layer/gpio/../mcal_std_types.h" 2
+# 1 "ecu_layer/keypad/../../mcal_layer/gpio/../compiler.h" 1
 
 
 
@@ -4877,8 +4885,8 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 2 3
-# 6 "mcal_layer/gpio/../compiler.h" 2
-# 8 "mcal_layer/gpio/../mcal_std_types.h" 2
+# 6 "ecu_layer/keypad/../../mcal_layer/gpio/../compiler.h" 2
+# 8 "ecu_layer/keypad/../../mcal_layer/gpio/../mcal_std_types.h" 2
 
 
 
@@ -4890,12 +4898,12 @@ typedef signed short sint16;
 typedef signed long sint32;
 
 typedef uint8 STD_RETURN_TYPE;
-# 7 "mcal_layer/gpio/hal_gpio.h" 2
-# 1 "mcal_layer/gpio/../device_config.h" 1
-# 8 "mcal_layer/gpio/hal_gpio.h" 2
-# 1 "mcal_layer/gpio/hal_gpio_cfg.h" 1
-# 9 "mcal_layer/gpio/hal_gpio.h" 2
-# 30 "mcal_layer/gpio/hal_gpio.h"
+# 7 "ecu_layer/keypad/../../mcal_layer/gpio/hal_gpio.h" 2
+# 1 "ecu_layer/keypad/../../mcal_layer/gpio/../device_config.h" 1
+# 8 "ecu_layer/keypad/../../mcal_layer/gpio/hal_gpio.h" 2
+# 1 "ecu_layer/keypad/../../mcal_layer/gpio/hal_gpio_cfg.h" 1
+# 9 "ecu_layer/keypad/../../mcal_layer/gpio/hal_gpio.h" 2
+# 30 "ecu_layer/keypad/../../mcal_layer/gpio/hal_gpio.h"
 typedef enum {
     GPIO_LOW,
     GPIO_HIGH
@@ -4951,149 +4959,77 @@ STD_RETURN_TYPE GPIO_PORT_GET_DIRECTION_STATUS(PORT_INDEX_T PORT, uint8 *DIREC_S
 STD_RETURN_TYPE GPIO_PORT_WRITE_LOGIC(PORT_INDEX_T PORT, uint8 LOG);
 STD_RETURN_TYPE GPIO_PORT_READ_LOGIC(PORT_INDEX_T PORT, uint8 *LOGIC);
 STD_RETURN_TYPE GPIO_PORT_TOGGLE_LOGIC(PORT_INDEX_T PORT);
-# 2 "mcal_layer/gpio/hal_gpio.c" 2
+# 7 "ecu_layer/keypad/ecu_keypad.h" 2
 
 
-volatile uint8 *TRIS_REGISTERS[] = {&TRISA, &TRISB, &TRISC, &TRISD, &TRISE};
 
-volatile uint8 *LAT_REGISTERS[] = {&LATA, &LATB, &LATC, &LATD, &LATE};
 
-volatile uint8 *PORT_REGISTERS[] = {&PORTA, &PORTB, &PORTC, &PORTD, &PORTE};
-# 18 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PIN_DIRECTION_INITIALIZE(const PIN_CONFIG_T *_PIN_CONFIG) {
+
+typedef struct {
+    PIN_CONFIG_T KEYPAD_ROW_PINS[4];
+    PIN_CONFIG_T KEYPAD_COL_PINS[4];
+}KEYPAD_T;
+
+STD_RETURN_TYPE KEYPAD_INITIALIZE(const KEYPAD_T *_keypad_obj);
+STD_RETURN_TYPE KEYPAD_GET_VALUE(const KEYPAD_T *_keypad_obj, uint8 *value);
+# 3 "ecu_layer/keypad/ecu_keypad.c" 2
+
+static const uint8 btn_values[4][4] = {
+    {'7', '8', '9', '/'},
+    {'4', '5', '6', '*'},
+    {'1', '2', '3', '-'},
+    {'#', '0', '=', '+'}
+};
+
+
+
+
+
+
+STD_RETURN_TYPE KEYPAD_INITIALIZE(const KEYPAD_T *_keypad_obj) {
     STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if((((void*)0) == _PIN_CONFIG) || (_PIN_CONFIG->PIN > 8 -1)) {
+    uint8 l_rows = 0, l_columns = 0;
+    if(((void*)0) == _keypad_obj) {
         RET = (STD_RETURN_TYPE)0x00;
     }
     else {
-        switch(_PIN_CONFIG->DIRECTION) {
-        case GPIO_DIRECTION_OUTPUT :
-            (*TRIS_REGISTERS[_PIN_CONFIG->PORT] &= ~((uint8)1 << _PIN_CONFIG->PIN));
-            break;
-        case GPIO_DIRECTION_INPUT :
-            (*TRIS_REGISTERS[_PIN_CONFIG->PORT] |= ((uint8)1 << _PIN_CONFIG->PIN));
-            break;
-        default : RET = (STD_RETURN_TYPE)0x00;
+        for(l_rows = 0; l_rows < 4; l_rows++) {
+            RET = PIN_INITIALIZE(&(_keypad_obj->KEYPAD_ROW_PINS[l_rows]));
+            for(l_columns = 0; l_columns < 4; l_columns++) {
+                RET = GPIO_PIN_DIRECTION_INITIALIZE(&(_keypad_obj->KEYPAD_COL_PINS[l_columns]));
+            }
         }
     }
     return RET;
 }
-# 47 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PIN_DIRECTION_STATUS(const PIN_CONFIG_T *_PIN_CONFIG, DIRECTION_T *DIREC_STATUS) {
+
+
+
+
+
+
+
+STD_RETURN_TYPE KEYPAD_GET_VALUE(const KEYPAD_T *_keypad_obj, uint8 *value) {
     STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if((((void*)0) == _PIN_CONFIG) || (((void*)0) == DIREC_STATUS) || (_PIN_CONFIG->PIN > 8 -1)) {
+    uint8 l_rows = 0, l_columns = 0, l_counter = 0;
+    uint8 column_logic = 0;
+    if((((void*)0) == _keypad_obj) || (((void*)0) == value)) {
         RET = (STD_RETURN_TYPE)0x00;
     }
     else {
-        *DIREC_STATUS = ((*TRIS_REGISTERS[_PIN_CONFIG->PORT] >> _PIN_CONFIG->PIN) & (uint8)1);
-    }
-    return RET;
-}
-# 68 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PIN_WRITE_LOGIC(const PIN_CONFIG_T *_PIN_CONFIG, LOGIC_T LOGIC) {
-    STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if(((void*)0) == _PIN_CONFIG || _PIN_CONFIG->PIN > 8 -1) {
-        RET = (STD_RETURN_TYPE)0x00;
-    }
-    else {
-        switch(LOGIC) {
-            case GPIO_LOW :
-                (*LAT_REGISTERS[_PIN_CONFIG->PORT] &= ~((uint8)1 << _PIN_CONFIG->PIN));
-                break;
-            case GPIO_HIGH :
-                (*LAT_REGISTERS[_PIN_CONFIG->PORT] |= ((uint8)1 << _PIN_CONFIG->PIN));
-                break;
-            default : RET = (STD_RETURN_TYPE)0x00;
+        for(l_rows = 0; l_rows < 4; l_rows++) {
+            for(l_counter = 0; l_counter < 4; l_counter++) {
+                GPIO_PIN_WRITE_LOGIC(&(_keypad_obj->KEYPAD_ROW_PINS[l_counter]), GPIO_LOW);
+            }
+            GPIO_PIN_WRITE_LOGIC(&(_keypad_obj->KEYPAD_ROW_PINS[l_rows]), GPIO_HIGH);
+
+            for(l_columns = 0; l_columns < 4; l_columns++) {
+                RET = GPIO_PIN_READ_LOGIC(&(_keypad_obj->KEYPAD_COL_PINS[l_columns]), &column_logic);
+                if(GPIO_HIGH == column_logic) {
+                    *value = btn_values[l_rows][l_columns];
+                }
+            }
         }
-    }
-    return RET;
-}
-# 97 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PIN_READ_LOGIC(const PIN_CONFIG_T *_PIN_CONFIG, LOGIC_T *LOGIC) {
-    STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if(((void*)0) == _PIN_CONFIG || ((void*)0) == LOGIC || _PIN_CONFIG->PIN > 8 -1) {
-        RET = (STD_RETURN_TYPE)0x00;
-    }
-    else {
-        *LOGIC = ((*PORT_REGISTERS[_PIN_CONFIG->PORT] >> _PIN_CONFIG->PIN) & (uint8)1);
-    }
-    return RET;
-}
-# 117 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PIN_TOGGLE_LOGIC(const PIN_CONFIG_T *_PIN_CONFIG) {
-    STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if(((void*)0) == _PIN_CONFIG || _PIN_CONFIG->PIN > 8 -1) {
-        RET = (STD_RETURN_TYPE)0x00;
-    }
-    else {
-        (*LAT_REGISTERS[_PIN_CONFIG->PORT] ^= ((uint8)1 << _PIN_CONFIG->PIN));
-    }
-    return RET;
-}
-# 137 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE PIN_INITIALIZE(const PIN_CONFIG_T *_PIN_CONFIG) {
-    STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if(((void*)0) == _PIN_CONFIG || _PIN_CONFIG->PIN > 8 -1) {
-        RET = (STD_RETURN_TYPE)0x00;
-    }
-    else {
-        RET = GPIO_PIN_DIRECTION_INITIALIZE(_PIN_CONFIG);
-        RET = GPIO_PIN_WRITE_LOGIC(_PIN_CONFIG, _PIN_CONFIG->LOGIC);
-    }
-    return RET;
-}
-# 160 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PORT_DIRECTION_INITIALIZE(PORT_INDEX_T PORT, uint8 DIREC) {
-    STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if(PORT > 5 -1) {
-        RET = (STD_RETURN_TYPE)0x00;
-    }
-    else {
-        *TRIS_REGISTERS[PORT] = DIREC;
-    }
-    return RET;
-}
-# 181 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PORT_GET_DIRECTION_STATUS(PORT_INDEX_T PORT, uint8 *DIREC_STATUS) {
-    STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if((((void*)0) == DIREC_STATUS) && (PORT > 5 -1)) {
-        RET = (STD_RETURN_TYPE)0x00;
-    }
-    else {
-        *DIREC_STATUS = *TRIS_REGISTERS[PORT];
-    }
-    return RET;
-}
-# 202 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PORT_WRITE_LOGIC(PORT_INDEX_T PORT, uint8 LOGIC) {
-    STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if(PORT > 5 -1) {
-        RET = (STD_RETURN_TYPE)0x00;
-    }
-    else {
-        *LAT_REGISTERS[PORT] = LOGIC;
-    }
-    return RET;
-}
-# 223 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PORT_READ_LOGIC(PORT_INDEX_T PORT, uint8 *LOGIC) {
-    STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if((((void*)0) == LOGIC) && (PORT > 5 -1)) {
-        RET = (STD_RETURN_TYPE)0x00;
-    }
-    else {
-        *LOGIC = *LAT_REGISTERS[PORT];
-    }
-    return RET;
-}
-# 243 "mcal_layer/gpio/hal_gpio.c"
-STD_RETURN_TYPE GPIO_PORT_TOGGLE_LOGIC(PORT_INDEX_T PORT) {
-    STD_RETURN_TYPE RET = (STD_RETURN_TYPE)0x01;
-    if(PORT > 5 -1) {
-        RET = (STD_RETURN_TYPE)0x00;
-    }
-    else {
-        *LAT_REGISTERS[PORT] ^= 0xFF;
     }
     return RET;
 }
