@@ -1,4 +1,5 @@
-**structured weekly schedule with hands‑on exercises** so you can steadily progress from beginner to advanced PIC microcontroller interfacing:
+**Structured weekly schedule with hands‑on exercises**
+so you can steadily progress from beginner to advanced PIC microcontroller interfacing:
 
 ---
 
