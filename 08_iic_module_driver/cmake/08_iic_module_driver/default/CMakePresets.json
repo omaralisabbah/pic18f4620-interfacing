@@ -1,0 +1,21 @@
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "08_iic_module_driver_default_conf",
+            "binaryDir": "${fileDir}/../../../_build/08_iic_module_driver/default",
+            "generator": "Ninja",
+            "toolchainFile": "${fileDir}/.generated/toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_USER_MAKE_RULES_OVERRIDE": {
+                    "type": "FILEPATH",
+                    "value": "${fileDir}/.generated/overrides.cmake"
+                },
+                "CMAKE_EXPORT_COMPILE_COMMANDS": {
+                    "type": "BOOL",
+                    "value": "ON"
+                }
+            }
+        }
+    ]
+}
